@@ -2,7 +2,6 @@ package com.sophos.certificacion.api.tasks;
 
 
 import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -13,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ConsumirApi implements Task {
+public class ConsumePostApi implements Task {
 
     private List<Map<String, String>> data;
 
-    public ConsumirApi(List<Map<String, String>> data) {
+    public ConsumePostApi(List<Map<String, String>> data) {
         this.data = data;
     }
 
@@ -39,6 +38,6 @@ public class ConsumirApi implements Task {
         System.out.println("Status code "+ response.getStatusCode());
     }
     public static Performable to(List<Map<String, String>> data){
-        return Tasks.instrumented(ConsumirApi.class, data);
+        return Tasks.instrumented(ConsumePostApi.class, data);
     }
 }
