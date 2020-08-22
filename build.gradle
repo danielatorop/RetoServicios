@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+version '1.0-SNAPSHOT'
+group 'org.example'
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    maven{
+        url "https://mvnrepository.com"
+    }
+}
+
+buildscript {
+    repositories {
+        maven{
+            url "https://mvnrepository.com"
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.55")
+    }
+}
+dependencies {
+    testCompile group: 'net.serenity-bdd', name: 'serenity-junit', version: '2.0.60'
+    compile group: 'net.serenity-bdd', name: 'serenity-core', version: '2.0.60'
+    compile group: 'net.serenity-bdd', name: 'serenity-screenplay', version: '2.0.60'
+    compile group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: '2.0.60'
+    compile group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '1.9.39'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.28'
+    compile group:'org.json',name:'json',version:'20190722'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile group: 'net.serenity-bdd',name:'serenity-screenplay-rest',version:'2.0.60'
+
+}
